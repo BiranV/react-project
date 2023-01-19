@@ -23,16 +23,14 @@ h1 {
 }
 
 .recipes {
-  display: grid;
-  max-width: 1024px;
-  margin: 2rem auto 0;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-gap: 1rem;
+  max-width: 800px;
+  margin: auto;
 }
 
 .recipe {
   background-color: #fff;
   padding: 1rem;
+  margin: 1rem;
   border-radius: 0.5rem;
   text-align: left;
   border: none;
