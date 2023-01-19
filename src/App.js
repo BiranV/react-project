@@ -123,7 +123,6 @@ function App() {
   const removeRecipe = (id) => {
     deleteDoc(doc(db, "recipes", id));
   };
-  //from here
   const handleEditIngredient = (e, index) => {
     const ingredientsClone = [...editForm.ingredients];
     ingredientsClone[index] = e.target.value;
@@ -136,7 +135,7 @@ function App() {
     const stepssClone = [...editForm.steps];
     stepssClone[index] = e.target.value;
     setEditForm({
-      ...form,
+      ...editForm,
       steps: stepssClone,
     });
   };
