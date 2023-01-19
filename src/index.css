@@ -62,6 +62,10 @@ button {
   background-color: #2f75d1;
 }
 
+.button-edit {
+  background-color: #d07c2e;
+}
+
 button:hover {
   opacity: 1;
 }
