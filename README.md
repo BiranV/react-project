@@ -1,7 +1,6 @@
-![my-recipe1](https://user-images.githubusercontent.com/59264488/213485113-6fee86d7-3e93-441a-82b4-21e76f2b9efa.JPG)
+![my-recipe0](https://user-images.githubusercontent.com/59264488/213524084-e029e986-a6b0-4d8d-a570-74c76e5fbbc0.JPG)
 
-![my-recipe2](https://user-images.githubusercontent.com/59264488/213485673-58c1fb6d-190a-47a1-9ecb-606f8aeda9a0.JPG)
-
+![my-recipe1](https://user-images.githubusercontent.com/59264488/213524098-754577ee-1bca-43b7-8bb4-e534ac5406ac.JPG)
 
 In the project directory, you can run:
 
