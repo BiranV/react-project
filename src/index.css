@@ -1,13 +1,170 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #eee;
+}
+
+.App {
+  color: #676767;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #4b4b4b;
+}
+
+.recipes {
+  display: grid;
+  max-width: 1024px;
+  margin: 2rem auto 0;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 1rem;
+}
+
+.recipe {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: left;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #00905b;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.button-view {
+  background-color: #2f75d1;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.submit {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #00905b;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: -0.5rem;
+}
+
+.buttons button {
+  margin: 0 0.5rem;
+}
+
+button.remove {
+  color: #fff;
+  background-color: #db3052;
+}
+
+h4 {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+li {
+  line-height: 1.4;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  text-align: left;
+}
+
+.popup-inner {
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 480px;
+  overflow: auto;
+  max-height: calc(100vh - 4rem);
+}
+
+.popup h2 {
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  resize: vertical;
+  max-height: 200px;
+  margin-bottom: 0.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group button {
+  margin-top: 1rem;
 }
