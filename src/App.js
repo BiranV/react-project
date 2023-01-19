@@ -257,7 +257,21 @@ function App() {
                   Submit
                 </button>
                 <button
-                  type="submit"
+                  type="button"
+                  className="button-clear"
+                  onClick={() =>
+                    setForm({
+                      title: "",
+                      desc: "",
+                      ingredients: [],
+                      steps: [],
+                    })
+                  }
+                >
+                  Clear
+                </button>
+                <button
+                  type="button"
                   className="remove"
                   onClick={() => setPopupActive(false)}
                 >
@@ -334,7 +348,7 @@ function App() {
                   Submit
                 </button>
                 <button
-                  type="submit"
+                  type="button"
                   className="remove"
                   onClick={() => setEditActive(false)}
                 >
