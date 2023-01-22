@@ -10,21 +10,8 @@ import {
 } from "firebase/firestore";
 
 function App() {
-  const [recipes, setRecipes] = useState([]);
-  const [form, setForm] = useState({
-    title: "",
-    desc: "",
-    ingredients: [],
-    steps: [],
-  });
-  const [editActive, setEditActive] = useState(false);
-  const [editForm, setEditForm] = useState({});
-  const [popupActive, setPopupActive] = useState(false);
-
-  const recipesCollecionRef = collection(db, "recipes");
-
   useEffect(() => {
-    onSnapshot(recipesCollecionRef, (snapshot) => {
+    onSnapshot(collection(db, "recipes"), (snapshot) => {
       setRecipes(
         snapshot.docs.map((doc) => {
           return {
@@ -36,27 +23,44 @@ function App() {
       );
     });
   }, []);
+  const [recipes, setRecipes] = useState([]);
+  const [form, setForm] = useState({
+    title: "",
+    desc: "",
+    ingredients: [],
+    steps: [],
+  });
+  const [editMode, setEditMode] = useState(false);
+  const [popupActive, setPopupActive] = useState(false);
 
+  const handleAdd = () => {
+    setEditMode(false);
+    setForm({
+      title: "",
+      desc: "",
+      ingredients: [],
+      steps: [],
+    });
+    setPopupActive(true);
+  };
+  const handleEdit = (id) => {
+    [...recipes].forEach((recipe, key) => {
+      if (recipe.id === id) {
+        setForm({ ...recipe });
+        setEditMode(true);
+        setPopupActive(true);
+      }
+    });
+  };
   const handleView = (id) => {
-    const recipeClone = [...recipes];
-    recipeClone.forEach((recipe, key) => {
+    [...recipes].forEach((recipe, key) => {
       if (recipe.id === id) {
         recipe.viewing = !recipe.viewing;
       } else {
         recipe.viewing = false;
       }
     });
-    setRecipes(recipeClone);
-  };
-
-  const handleEdit = (id) => {
-    const recipeClone = [...recipes];
-    recipeClone.forEach((recipe, key) => {
-      if (recipe.id === id) {
-        setEditForm({ ...recipe });
-        setEditActive(true);
-      }
-    });
+    setRecipes([...recipes]);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,33 +73,21 @@ function App() {
       alert("Please fill out all fields");
       return;
     } else {
-      addDoc(recipesCollecionRef, form);
+      if (editMode === false) {
+        addDoc(collection(db, "recipes"), form);
+      } else {
+        updateDoc(doc(db, "recipes", form.id), form);
+      }
+      setForm({
+        title: "",
+        desc: "",
+        ingredients: [],
+        steps: [],
+      });
+      setEditMode(false);
+      setPopupActive(false);
     }
-
-    setForm({
-      title: "",
-      desc: "",
-      ingredients: [],
-      steps: [],
-    });
-    setPopupActive(false);
   };
-  const handleEditSubmit = (e) => {
-    e.preventDefault();
-    if (
-      !editForm.title ||
-      !editForm.desc ||
-      editForm.ingredients.length < 1 ||
-      editForm.steps.length < 1
-    ) {
-      alert("Please fill out all fields");
-      return;
-    } else {
-      updateDoc(doc(db, "recipes", editForm.id), editForm);
-    }
-    setEditActive(false);
-  };
-
   const handleIngredient = (e, index) => {
     const ingredientsClone = [...form.ingredients];
     ingredientsClone[index] = e.target.value;
@@ -120,37 +112,10 @@ function App() {
     setForm({ ...form, steps: [...form.steps, ""] });
   };
 
-  const removeRecipe = (id) => {
-    deleteDoc(doc(db, "recipes", id));
-  };
-  const handleEditIngredient = (e, index) => {
-    const ingredientsClone = [...editForm.ingredients];
-    ingredientsClone[index] = e.target.value;
-    setEditForm({
-      ...editForm,
-      ingredients: ingredientsClone,
-    });
-  };
-  const handleEditStep = (e, index) => {
-    const stepssClone = [...editForm.steps];
-    stepssClone[index] = e.target.value;
-    setEditForm({
-      ...editForm,
-      steps: stepssClone,
-    });
-  };
-  const handleEditIngredientCount = () => {
-    setEditForm({ ...editForm, ingredients: [...editForm.ingredients, ""] });
-  };
-
-  const handleEditStepCount = () => {
-    setEditForm({ ...editForm, steps: [...editForm.steps, ""] });
-  };
-
   return (
     <div className="App">
       <h1>My recipes</h1>
-      <button onClick={() => setPopupActive(!popupActive)}>Add recipe</button>
+      <button onClick={handleAdd}>Add recipe</button>
       <div className="recipes">
         {recipes.map((recipe, index) => (
           <div className="recipe" key={recipe.id}>
@@ -187,7 +152,7 @@ function App() {
               </button>
               <button
                 className="remove"
-                onClick={() => removeRecipe(recipe.id)}
+                onClick={() => deleteDoc(doc(db, "recipes", recipe.id))}
               >
                 Remove
               </button>
@@ -198,7 +163,7 @@ function App() {
       {popupActive && (
         <div className="popup">
           <div className="popup-inner">
-            <h2>Add a new recipe</h2>
+            <h2>{editMode ? "Edit" : "Add"} recipe</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Title</label>
@@ -274,83 +239,6 @@ function App() {
                   type="button"
                   className="remove"
                   onClick={() => setPopupActive(false)}
-                >
-                  Close
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-      {editActive && (
-        <div className="popup">
-          <div className="popup-inner">
-            <h2>Edit recipe</h2>
-            <form onSubmit={handleEditSubmit}>
-              <div className="form-group">
-                <label>Title</label>
-                <input
-                  type="text"
-                  value={editForm.title}
-                  onChange={(e) =>
-                    setEditForm({ ...editForm, title: e.target.value })
-                  }
-                />
-              </div>
-              <div className="form-group">
-                <label>Description</label>
-                <textarea
-                  type="text"
-                  value={editForm.desc}
-                  onChange={(e) =>
-                    setEditForm({ ...editForm, desc: e.target.value })
-                  }
-                />
-              </div>
-              <div className="form-group">
-                <label>Ingredients</label>
-                {editForm.ingredients.map((ingredient, index) => (
-                  <input
-                    type="text"
-                    key={index}
-                    value={ingredient}
-                    onChange={(e) => handleEditIngredient(e, index)}
-                  />
-                ))}
-                <button
-                  type="button"
-                  className="button-view"
-                  onClick={handleEditIngredientCount}
-                >
-                  Add igredient
-                </button>
-              </div>
-              <div className="form-group">
-                <label>Steps</label>
-                {editForm.steps.map((step, index) => (
-                  <input
-                    type="text"
-                    key={index}
-                    value={step}
-                    onChange={(e) => handleEditStep(e, index)}
-                  />
-                ))}
-                <button
-                  type="button"
-                  className="button-view"
-                  onClick={handleEditStepCount}
-                >
-                  Add step
-                </button>
-              </div>
-              <div className="buttons">
-                <button type="submit" className="submit">
-                  Submit
-                </button>
-                <button
-                  type="button"
-                  className="remove"
-                  onClick={() => setEditActive(false)}
                 >
                   Close
                 </button>
