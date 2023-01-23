@@ -171,3 +171,17 @@ textarea {
 .form-group button {
   margin-top: 1rem;
 }
+
+.snackbar {
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #4b4b4b;
+  color: #eee;
+  text-align: center;
+  border-radius: 2px;
+  padding: 8px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
