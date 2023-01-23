@@ -31,7 +31,7 @@ function App() {
   };
 
   const [snackbarActive, setSnackbarActive] = useState({
-    show: true,
+    show: false,
     text: "",
   });
 
