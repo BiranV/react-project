@@ -2,6 +2,8 @@
 
 ![my-recipe1](https://user-images.githubusercontent.com/59264488/213524098-754577ee-1bca-43b7-8bb4-e534ac5406ac.JPG)
 
+## Available Scripts
+
 In the project directory, you can run:
 
 ### `npm start`
