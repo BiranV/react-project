@@ -155,6 +155,7 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
             ...form,
             viewing: false,
           });
+          handleSnackbar("edited");
           setForm({
             title: "",
             desc: "",
