@@ -87,7 +87,11 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
           () => {
             getDownloadURL(uploadImage.snapshot.ref)
               .then((url) => {
-                addDoc(collection(db, "recipes"), { ...form, image: url });
+                addDoc(collection(db, "recipes"), {
+                  ...form,
+                  image: url,
+                  viewing: false,
+                });
               })
               .then(() => {
                 handleSnackbar("added");
@@ -128,6 +132,7 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
                   updateDoc(doc(db, "recipes", form.id), {
                     ...form,
                     image: url,
+                    viewing: false,
                   });
                 })
                 .then(() => {
@@ -148,6 +153,7 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
         } else {
           updateDoc(doc(db, "recipes", form.id), {
             ...form,
+            viewing: false,
           });
           setForm({
             title: "",
@@ -295,6 +301,7 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
                   </button>
                 </div>
                 <input
+                  className="input-file"
                   type="file"
                   onChange={(e) =>
                     setForm({ ...form, image: e.target.files[0] })

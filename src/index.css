@@ -71,7 +71,7 @@ button:hover {
   opacity: 1;
 }
 
-.submit {
+.submit{
   appearance: none;
   background: none;
   border: none;
@@ -161,6 +161,10 @@ textarea {
   resize: vertical;
   max-height: 200px;
   margin-bottom: 0.5rem;
+}
+
+.input-file{
+  resize: none;
 }
 
 .form-group label {
