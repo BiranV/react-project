@@ -185,3 +185,7 @@ textarea {
   left: 50%;
   bottom: 30px;
 }
+img {
+  max-width: 200px;
+  height: auto;
+}
