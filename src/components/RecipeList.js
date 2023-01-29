@@ -66,30 +66,30 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
       alert("Please fill out all fields");
       return;
     } else {
-      if (editMode === false) {
-        const storageRef = ref(
-          storage,
-          `/recipes/${Date.now()}${form.image.name}`
-        );
-
-        const uploadImage = uploadBytesResumable(storageRef, form.image);
-        uploadImage.on(
-          "state_changed",
-          (snapshot) => {
-            const progressPercent = Math.round(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            setProgress(progressPercent);
-          },
-          (err) => {
-            console.log(err);
-          },
-          () => {
-            getDownloadURL(uploadImage.snapshot.ref)
-              .then((url) => {
+      const storageRef = ref(
+        storage,
+        `/recipes/${Date.now()}${form.image.name}`
+      );
+      const uploadTask = uploadBytesResumable(storageRef, form.image);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progressPercent = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progressPercent);
+        },
+        (err) => {
+          console.log(err);
+        },
+        () => {
+          if (editMode === false) {
+            // new recipe
+            getDownloadURL(uploadTask.snapshot.ref)
+              .then((downloadURL) => {
                 addDoc(collection(db, "recipes"), {
                   ...form,
-                  image: url,
+                  image: downloadURL,
                   viewing: false,
                 });
               })
@@ -105,33 +105,15 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
                 setEditMode(false);
                 setPopupActive(false);
               });
-          }
-        );
-      } else {
-        if (form.image.name !== undefined) {
-          const storageRef = ref(
-            storage,
-            `/recipes/${Date.now()}${form.image.name}`
-          );
-
-          const uploadImage = uploadBytesResumable(storageRef, form.image);
-          uploadImage.on(
-            "state_changed",
-            (snapshot) => {
-              const progressPercent = Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-              );
-              setProgress(progressPercent);
-            },
-            (err) => {
-              console.log(err);
-            },
-            () => {
-              getDownloadURL(uploadImage.snapshot.ref)
-                .then((url) => {
+          } else {
+            // edited recipe
+            if (form.image.name !== undefined) {
+              // new image
+              getDownloadURL(uploadTask.snapshot.ref)
+                .then((downloadURL) => {
                   updateDoc(doc(db, "recipes", form.id), {
                     ...form,
-                    image: url,
+                    image: downloadURL,
                     viewing: false,
                   });
                 })
@@ -148,25 +130,26 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
                   setEditMode(false);
                   setPopupActive(false);
                 });
+            } else {
+              // no image change
+              updateDoc(doc(db, "recipes", form.id), {
+                ...form,
+                viewing: false,
+              });
+              handleSnackbar("edited");
+              setForm({
+                title: "",
+                desc: "",
+                ingredients: [],
+                steps: [],
+                image: null,
+              });
+              setEditMode(false);
+              setPopupActive(false);
             }
-          );
-        } else {
-          updateDoc(doc(db, "recipes", form.id), {
-            ...form,
-            viewing: false,
-          });
-          handleSnackbar("edited");
-          setForm({
-            title: "",
-            desc: "",
-            ingredients: [],
-            steps: [],
-            image: null,
-          });
-          setEditMode(false);
-          setPopupActive(false);
+          }
         }
-      }
+      );
     }
   };
   const handleIngredient = (e, index) => {
@@ -308,7 +291,11 @@ export default function RecipeList({ recipes, handleView, handleSnackbar }) {
                     setForm({ ...form, image: e.target.files[0] })
                   }
                 />
-                {progress !== 0 && <div>{`uploading image ${progress}%`}</div>}
+                {progress !== 0 &&
+                  progress !== NaN &&
+                  form.image.name !== undefined && (
+                    <div>{`uploading image ${progress}%`}</div>
+                  )}
                 <div className="buttons">
                   <button type="submit" className="submit">
                     Submit
