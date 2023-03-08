@@ -121,12 +121,12 @@ function App() {
       </form>
       <ul>
         {expenses.map((expense, key) => (
-          <ExpenseItem
+          <li key={key}><ExpenseItem
             key={key}
             expense={expense}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
-          />
+          /></li>
         ))}
       </ul>
       <div className="total-amount">

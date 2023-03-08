@@ -11,14 +11,14 @@ body {
   background-color: #eee;
 }
 
-.home-app{
+.home-app {
   max-width: 800px;
   margin: auto;
   justify-content: center;
   text-align: center;
 }
 
-.home-container{
+.home-container {
   margin-top: 2rem;
   background-color: white;
   padding: 1rem;
@@ -248,7 +248,7 @@ img {
   margin: 0 auto;
 }
 
-.title-page{
+.title-page {
   display: flex;
   justify-content: center;
   margin: 2rem 0;
@@ -259,6 +259,7 @@ img {
   display: flex;
   justify-content: center;
 }
+
 .expenses-buttons {
   display: flex;
   justify-content: center;
@@ -293,8 +294,12 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #676767;;
+  border-bottom: 2px solid #676767;
   height: 50px;
+}
+
+li:first-child .expense-line {
+  border-top: 2px solid #676767;
 }
 
 .expenses-buttons {
