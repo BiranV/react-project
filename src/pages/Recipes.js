@@ -129,7 +129,6 @@ export default function Recipes() {
     };
 
     const handleSnackbar = (val) => {
-        console.log(val)
         setSnackbarActive({ show: true, text: val });
         setTimeout(() => {
             setSnackbarActive({ show: false, text: "" });
@@ -141,7 +140,7 @@ export default function Recipes() {
                 <h1>Recipes</h1>
             </div>
             <button className="add" onClick={handleAdd}>Add recipe</button>
-            <div >
+            <div>
                 {recipes.map((recipe, index) => (
                     <div className="recipe" key={recipe.id}>
                         <h3>{recipe.title}</h3>

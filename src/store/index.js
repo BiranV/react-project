@@ -7,14 +7,16 @@ const recipeSlice = createSlice({
     initialState: initialRecipesState,
     reducers: {
         fetch(state) {
-            state.recipes = JSON.parse(localStorage.getItem("recipes"))
+            const initialData = JSON.parse(localStorage.getItem("recipes"));
+            if (initialData) {
+                state.recipes = initialData;
+            }
         },
         add(state, actions) {
             const current = new Date();
             const date = `${ current.getDate() }/${ current.getMonth() + 1 }/${ current.getFullYear() }` + " " + current.getHours() + ":"
                 + current.getMinutes() + ":" + current.getSeconds();
             actions.payload.date = date;
-            console.log("new: ", actions.payload)
             state.recipes.push(actions.payload)
             localStorage.setItem('recipes', JSON.stringify(state.recipes));
         },
@@ -24,7 +26,6 @@ const recipeSlice = createSlice({
                 + current.getMinutes() + ":" + current.getSeconds();
             actions.payload.date = date;
             actions.payload.updated = true;
-            console.log("edited: ", actions.payload)
             actions.payload.viewing = false;
             state.recipes = state.recipes.map(el => el.id !== actions.payload.id ? el : actions.payload);
             localStorage.setItem('recipes', JSON.stringify(state.recipes));
