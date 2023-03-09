@@ -15,8 +15,6 @@ export default function Home() {
             <div className="home-container">
                 <div style={{ fontWeight: "bold", fontSize: "20px" }}>
                     Created by: Biran Varon.
-
-
                     <p><a href="https://github.com/BiranV" target="_blank"> <button className="add" >GitHub</button></a></p>
                 </div>
             </div>
