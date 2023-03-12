@@ -3,11 +3,12 @@ import { NavLink } from "react-router-dom"
 export default function TheHeader() {
     return (
         <nav className="header" >
-            <NavLink className="nav-grad" to="/"><h1>React Project - Biran Varon</h1></NavLink>
+            <NavLink to="/"><h1>React Project - Biran Varon</h1></NavLink>
             <div className="nav-container">
-                <p className="nav-page"><NavLink to="/recipes">Recipes</NavLink></p>
-                <p className="nav-page"><NavLink to="/expenses">Expenses</NavLink></p>
-            </div>  </nav>
+                <NavLink className="nav-page" style={({ isActive }) => isActive ? { border: '1px solid #ffffff' } : null} to="/recipes">Recipes</NavLink>
+                <NavLink className="nav-page" style={({ isActive }) => isActive ? { border: '1px solid #ffffff' } : null} to="/expenses">Expenses</NavLink>
+            </div>
+        </nav>
 
     )
 }

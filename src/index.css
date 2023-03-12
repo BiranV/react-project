@@ -59,6 +59,12 @@ nav {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
 }
 
+nav h1 {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
 nav a {
   text-decoration: none;
   color: #ffffff;
@@ -66,24 +72,11 @@ nav a {
   border: 1px solid transparent;
 }
 
-nav h1 {
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 0.5rem;
-}
-
 .nav-page {
   margin: 0 0.5rem;
 }
 
-.nav-page a:hover {
+.nav-page:hover {
   border: 1px solid #ffffff;
 }
 

@@ -3,8 +3,11 @@ export default function ExpenseItem({ expense, handleEdit, handleDelete }) {
     return (
 
         <div className="expense-line">
+            <div className="span-amount">
+                ${amount}
+            </div>
             <div>
-                <span className="span-amount">${amount}</span>
+
                 {title}
             </div>
             <div className="expense-buttons">
