@@ -53,9 +53,10 @@ body {
   height: 100%;
 }
 
-.isActive{
+.isActive {
   border-color: #00905b;
 }
+
 .snackbar {
   min-width: 250px;
   margin-left: -125px;
@@ -107,6 +108,9 @@ nav a {
   background-color: #FFFFFF;
 }
 
+.contact{
+  margin-top: 1rem;
+}
 button {
   appearance: none;
   border: 1px solid;
@@ -265,10 +269,8 @@ img {
 }
 
 .title-page {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin: 2rem 0;
-  text-decoration: underline;
 }
 
 .expenses-inputs {
