@@ -18,7 +18,7 @@ body {
   text-align: center;
 }
 
-.home-container {
+.card {
   position: relative;
   width: 100%;
   margin-top: 1rem;
@@ -27,13 +27,13 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
-.home-container-pages {
-  display: flex;
-  justify-content: space-around;
+.card .title {
+  margin-bottom: 1rem;
 }
 
-.home-container h1 {
-  margin-bottom: 2rem;
+.cards-flex {
+  display: flex;
+  justify-content: space-around;
 }
 
 .overlay {
@@ -48,11 +48,14 @@ body {
   transition: .5s ease;
 }
 
-.home-container-pages:hover .overlay {
+.card-pages:hover .overlay {
   bottom: 0;
   height: 100%;
 }
 
+.isActive{
+  border-color: #00905b;
+}
 .snackbar {
   min-width: 250px;
   margin-left: -125px;
@@ -88,15 +91,20 @@ nav a {
   text-decoration: none;
   color: #ffffff;
   padding: 0.75rem 1.5rem;
-  border: 1px solid transparent;
 }
 
 .nav-page {
   margin: 0 0.5rem;
+  border: 1px solid #FFFFFF;
 }
 
 .nav-page:hover {
   border: 1px solid #ffffff;
+}
+
+.nav-page.active {
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 button {
