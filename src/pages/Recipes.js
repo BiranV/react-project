@@ -223,7 +223,7 @@ export default function Recipes() {
                                 <div className="form-group">
                                     <label>Steps</label>
                                     {form.steps.map((step, index) => (
-                                        <input
+                                        <textarea
                                             type="text"
                                             key={index}
                                             value={step}
