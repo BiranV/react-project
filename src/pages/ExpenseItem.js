@@ -1,20 +1,20 @@
 export default function ExpenseItem({ expense, handleEdit, handleDelete }) {
     const { id, title, amount } = expense;
-    
+
     return (
         <div className="expense-line">
-            <div className="span-amount">  ${amount}  </div>
+            <div className="amount">  ${amount}  </div>
             <div> {title} </div>
             <div className="expense-buttons">
                 <button
-                    className="edit"
+                    className="orange-btn"
                     aria-label="edit button"
                     onClick={() => handleEdit(id)}
                 >
                     Edit
                 </button>
                 <button
-                    className="delete"
+                    className="red-btn"
                     aria-label="delete button"
                     onClick={() => handleDelete(id)}
                 >

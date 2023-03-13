@@ -134,13 +134,13 @@ export default function Recipes() {
             setSnackbarActive({ show: false, text: "" });
         }, 2000);
     };
-    
+
     return (
         <div className="app-recipes">
             <div className="title-page">
                 <h1>Recipes</h1>
             </div>
-            <button className="add" onClick={handleAdd}>Add recipe</button>
+            <button className="add-btn" onClick={handleAdd}>Add recipe</button>
             <div>
                 {recipes.map((recipe, index) => (
                     <div className="recipe" key={recipe.id}>
@@ -165,19 +165,19 @@ export default function Recipes() {
                         )}
                         <div className="buttons-recipes">
                             <button
-                                className="view"
+                                className="blue-btn"
                                 onClick={() => dispatch(recipesActions.view(recipe.id))}
                             >
                                 View {recipe.viewing ? "less" : "more"}
                             </button>
                             <button
-                                className="edit"
+                                className="orange-btn"
                                 onClick={() => handleEdit(recipe.id, recipe.image)}
                             >
                                 Edit
                             </button>
                             <button
-                                className="delete"
+                                className="red-btn"
                                 onClick={() => handleDelete(recipe.id)}
                             >
                                 Delete
@@ -215,7 +215,7 @@ export default function Recipes() {
                                     ))}
                                     <button
                                         type="button"
-                                        className="view"
+                                        className="blue-btn"
                                         onClick={handleIngredientCount}
                                     >
                                         Add igredient
@@ -233,7 +233,7 @@ export default function Recipes() {
                                     ))}
                                     <button
                                         type="button"
-                                        className="view"
+                                        className="blue-btn"
                                         onClick={handleStepCount}
                                     >
                                         Add step
@@ -245,12 +245,12 @@ export default function Recipes() {
                                     onChange={handleImageUpload}
                                 />
                                 <div className="buttons-recipes">
-                                    <button type="submit" className="submit">
+                                    <button type="submit" className="green-btn">
                                         Submit
                                     </button>
                                     <button
                                         type="button"
-                                        className="delete"
+                                        className="red-btn"
                                         onClick={() => setPopupActive(false)}
                                     >
                                         Close

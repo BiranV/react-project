@@ -65,7 +65,7 @@ function App() {
       }
     });
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.title || !form.amount) {
@@ -115,8 +115,7 @@ function App() {
           />
         </div>
         <div className="expenses-buttons">
-
-          <button type="submit" className="submit">
+          <button type="submit" className="green-btn">
             {!editMode ? "Submit" : "Save"}
           </button>
         </div>
