@@ -14,11 +14,16 @@ export default function Home() {
                 </p>
             </div>
             <div className="cards-flex">
-                <div className="card" style={{ marginRight: '0.25rem' }}><h2>Recipes</h2>
-                    <h2 style={{ marginTop: '1rem' }}><SlBookOpen /></h2>
+                <div className="card" style={{ marginRight: '0.25rem' }}><h2>Recipes</h2>  <h2 style={{ marginTop: '1rem' }}><SlBookOpen /></h2>
+                    <div className="overlay">
+                        <p>Using Redux & Local Storage</p>
+                    </div>
                 </div>
                 <div className="card" style={{ marginLeft: '0.25rem' }}><h2>Expenses</h2>
                     <h2 style={{ marginTop: '1rem' }}><BiDollar /></h2>
+                    <div className="overlay">
+                        <p>Using Firebase</p>
+                    </div>
                 </div>
             </div>
             <div className="card">
