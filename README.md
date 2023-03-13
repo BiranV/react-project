@@ -6,7 +6,7 @@
 
 ![05](https://user-images.githubusercontent.com/59264488/224646344-96b160d0-56c6-4b82-a44f-2b2cee4b0b54.JPG)
 
-![01](https://user-images.githubusercontent.com/59264488/224646347-014271d6-aa4d-4ec5-b07d-75ff4658ecb5.JPG)
+![01](https://user-images.githubusercontent.com/59264488/224671757-0819a857-018c-4b61-a039-6305a92ba958.JPG)
 
 ## Available Scripts
 
