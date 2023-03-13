@@ -14,9 +14,9 @@ export default function Home() {
             </div>
             <div className="home-container-pages">
                 <div className="home-container" style={{marginRight: '0.25rem'}}><h2>Recipes</h2>
-                    <h4>An app for recipes</h4></div>
+                    <h4  style={{marginTop: '1.5rem'}}>An app for recipes</h4></div>
                 <div className="home-container" style={{marginLeft: '0.25rem'}}><h2>Expenses</h2>
-                    <h4>An application for calculating expenses</h4>
+                    <h4 style={{marginTop: '1.5rem'}}>An application for calculating expenses</h4>
                     <br/>
                     </div>
             </div>
