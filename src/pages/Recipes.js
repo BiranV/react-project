@@ -134,6 +134,7 @@ export default function Recipes() {
             setSnackbarActive({ show: false, text: "" });
         }, 2000);
     };
+    
     return (
         <div className="app-recipes">
             <div className="title-page">

@@ -52,6 +52,7 @@ function App() {
       }
     });
   };
+
   const handleDelete = (id) => {
     [...expenses].forEach((expense, key) => {
       if (expense.id === id) {
@@ -64,6 +65,7 @@ function App() {
       }
     });
   };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.title || !form.amount) {

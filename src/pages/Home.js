@@ -34,7 +34,6 @@ export default function Home() {
                     <a href="https://github.com/BiranV" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}> <button className="github">GitHub</button></a>
                 </div>
             </div>
-
         </div>
     )
 }
