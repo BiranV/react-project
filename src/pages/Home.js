@@ -1,5 +1,6 @@
 import { SlBookOpen } from "react-icons/sl";
 import { BiDollar } from "react-icons/bi";
+import { NavLink } from "react-router-dom"
 
 export default function Home() {
     return (
@@ -15,17 +16,17 @@ export default function Home() {
                 </div>
             </div>
             <div className="cards-flex">
-                <div className="card" style={{ marginRight: '0.25rem' }}><h2>Recipes</h2>  <h2 style={{ marginTop: '1rem' }}><SlBookOpen /></h2>
+                <NavLink to="/recipes" className="card" style={{ marginRight: '0.25rem', textDecoration: "none", color: "#000000" }}><h2>Recipes</h2>  <h2 style={{ marginTop: '1rem' }}><SlBookOpen /></h2>
                     <div className="overlay">
                         <p>Using Redux & Local Storage</p>
                     </div>
-                </div>
-                <div className="card" style={{ marginLeft: '0.25rem' }}><h2>Expenses</h2>
+                </NavLink>
+                <NavLink to="/expenses" className="card" style={{ marginLeft: '0.25rem', textDecoration: "none", color: "#000000" }}><h2>Expenses</h2>
                     <h2 style={{ marginTop: '1rem' }}><BiDollar /></h2>
                     <div className="overlay">
                         <p>Using Firebase</p>
                     </div>
-                </div>
+                </NavLink>
             </div>
             <div className="card">
                 <h3>Full Name: Biran Varon</h3>
