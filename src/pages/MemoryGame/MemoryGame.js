@@ -8,6 +8,7 @@ export default function MemoryGame() {
     const [choiceOne, setchoiceOne] = useState(null)
     const [choiceTwo, setchoiceTwo] = useState(null)
     const [disabled, setDisabled] = useState(false)
+    const [popup, setPopup] = useState(true)
 
     const cardImages = [
         { "src": "/images/blue.png", matched: false },
@@ -44,13 +45,23 @@ export default function MemoryGame() {
                 resetTurn()
             } else {
                 setTimeout(() => resetTurn(), 1000)
-            }
+            };
         }
+        checkMode()
+
     }, [choiceOne, choiceTwo])
 
     const handleChoice = (card) => {
         if (card.id === choiceOne?.id) return;
         choiceOne ? setchoiceTwo(card) : setchoiceOne(card)
+    }
+
+    const checkMode = () => {
+        const res = cards.filter(x => x.matched === true);
+        if (res.length === 12) {
+            setPopup(true)
+        } else return;
+
     }
 
     const resetTurn = () => {
@@ -60,6 +71,15 @@ export default function MemoryGame() {
         setDisabled(false)
     }
 
+    const resetGame = () => {
+        setchoiceOne(null)
+        setchoiceTwo(null)
+        setTurns(0)
+        setDisabled(false)
+        setPopup(false)
+        setCards([])
+    }
+
     return (
         <div className="app-memory">
             <div className="title-page">
@@ -67,6 +87,15 @@ export default function MemoryGame() {
             </div>
             <button className="start-game-btn" onClick={shuffleCards} >Start Game</button>
             <div className="game-container">
+                {popup && <div className="popup">
+                    <div className="popup-inner-memory">Good Job!
+                        <button
+                            type="button"
+                            className="blue-btn"
+                            onClick={resetGame}
+                        >
+                            Exit
+                        </button></div></div>}
                 {cards.map(card => (
                     <SingleCard
                         key={card.id}

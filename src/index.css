@@ -364,3 +364,15 @@ li:first-child .expense-line {
   transform: rotateY(90deg);
   transition-delay: 0s;
 }
+
+.popup-inner-memory {
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 50%;
+  max-width: 250px;
+  overflow: auto;
+  max-height: calc(100vh - 4rem);
+}
