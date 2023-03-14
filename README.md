@@ -8,6 +8,10 @@
 
 ![5](https://user-images.githubusercontent.com/59264488/225045881-ee2d65de-b59e-4c64-95a0-07b9aa9f1858.JPG)
 
+![6](https://user-images.githubusercontent.com/59264488/225076922-909160a0-6435-4bfb-932c-a28e5ae09127.JPG)
+
+![7](https://user-images.githubusercontent.com/59264488/225076927-738b3eea-d211-4c52-8e95-32ba9a0bfb9a.JPG)
+
 ## Available Scripts
 
 In the project directory, you can run:
