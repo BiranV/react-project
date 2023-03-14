@@ -9,6 +9,7 @@ export default function TheHeader() {
             <div style={{ marginRight: "2rem" }}>
                 <NavLink style={{ border: "1px solid white", marginRight: "0.5rem" }} className={(navData) => navData.isActive ? "active" : ""} to="/recipes">Recipes</NavLink>
                 <NavLink style={{ border: "1px solid white", marginLeft: "0.5rem" }} className={(navData) => navData.isActive ? "active" : ""} to="/expenses">Expenses</NavLink>
+                <NavLink style={{ border: "1px solid white", marginLeft: "0.5rem" }} className={(navData) => navData.isActive ? "active" : ""} to="/memory-game">Memory Game</NavLink>
             </div>
         </nav>
 

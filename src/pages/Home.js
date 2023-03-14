@@ -1,5 +1,6 @@
 import { SlBookOpen } from "react-icons/sl";
 import { BiDollar } from "react-icons/bi";
+import { SlGameController } from "react-icons/sl";
 import { NavLink } from "react-router-dom"
 
 export default function Home() {
@@ -25,6 +26,12 @@ export default function Home() {
                     <h2 style={{ marginTop: '1rem' }}><BiDollar /></h2>
                     <div className="overlay">
                         <p>Using Firebase</p>
+                    </div>
+                </NavLink>
+                <NavLink to="/memory-game" className="card" style={{ marginLeft: '0.25rem', textDecoration: "none", color: "#000000" }}><h2>Memory Game</h2>
+                    <h2 style={{ marginTop: '1rem' }}><SlGameController /></h2>
+                    <div className="overlay">
+                        <p>Good Luck!</p>
                     </div>
                 </NavLink>
             </div>

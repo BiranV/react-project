@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Snackbar from "../components/Snackbar";
+import Snackbar from "../../components/Snackbar";
 import { useDispatch, useSelector } from "react-redux";
-import { recipesActions } from "../store/index"
+import { recipesActions } from "../../store/index"
 import { v4 as uuid } from 'uuid';
 
 export default function Recipes() {

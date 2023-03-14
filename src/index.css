@@ -308,3 +308,59 @@ li:first-child .expense-line {
   padding: 0.25rem;
   margin-right: 0.5rem;
 }
+
+/* memory game */
+.app-memory {
+  max-width: 900px;
+  margin: auto;
+}
+
+.memory-levels-btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.start-game-btn {
+  color: #2f75d1;
+  display: block;
+  margin: 2rem auto;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.card-memory {
+  position: relative;
+}
+
+.card-memory img {
+  width: 100%;
+  display: block;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+.card-memory .front {
+  position: absolute;
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+}
+
+.card-memory .cover {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.flipped .cover {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}
