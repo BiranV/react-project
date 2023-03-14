@@ -311,8 +311,8 @@ li:first-child .expense-line {
 
 /* memory game */
 .app-memory {
-  max-width: 900px;
-  margin: auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .memory-levels-btns {
@@ -327,10 +327,11 @@ li:first-child .expense-line {
   margin: 2rem auto;
 }
 
-.game-container {
+.grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 10px 10px;
+  grid-template-columns: 100px 100px 100px 100px;
+  justify-content: center;
 }
 
 .card-memory {

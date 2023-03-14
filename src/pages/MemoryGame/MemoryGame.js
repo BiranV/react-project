@@ -11,12 +11,14 @@ export default function MemoryGame() {
     const [popup, setPopup] = useState(false)
 
     const cardImages = [
-        { "src": "/images/blue.png", matched: false },
-        { "src": "/images/red.png", matched: false },
-        { "src": "/images/yellow.png", matched: false },
-        { "src": "/images/green.png", matched: false },
-        { "src": "/images/pink.png", matched: false },
-        { "src": "/images/purple.png", matched: false },
+        { "src": "/images/1.png", matched: false },
+        { "src": "/images/2.png", matched: false },
+        { "src": "/images/3.png", matched: false },
+        { "src": "/images/4.png", matched: false },
+        { "src": "/images/5.png", matched: false },
+        { "src": "/images/6.png", matched: false },
+        { "src": "/images/7.png", matched: false },
+        { "src": "/images/8.png", matched: false },
     ]
 
     const shuffleCards = () => {
@@ -58,7 +60,7 @@ export default function MemoryGame() {
 
     const checkMode = () => {
         const res = cards.filter(x => x.matched === true);
-        if (res.length === 12) {
+        if (res.length === 16) {
             setPopup(true)
         } else return;
 
@@ -86,7 +88,7 @@ export default function MemoryGame() {
                 <h1>Memory Game</h1>
             </div>
             <button className="start-game-btn" onClick={shuffleCards} >Start Game</button>
-            <div className="game-container">
+            <div className="grid-container">
                 {popup && <div className="popup">
                     <div className="popup-inner-memory">Good Job!
                         <button
