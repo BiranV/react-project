@@ -8,7 +8,7 @@ export default function MemoryGame() {
     const [choiceOne, setchoiceOne] = useState(null)
     const [choiceTwo, setchoiceTwo] = useState(null)
     const [disabled, setDisabled] = useState(false)
-    const [popup, setPopup] = useState(true)
+    const [popup, setPopup] = useState(false)
 
     const cardImages = [
         { "src": "/images/blue.png", matched: false },
