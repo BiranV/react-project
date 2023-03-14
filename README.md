@@ -10,7 +10,7 @@
 
 ![6](https://user-images.githubusercontent.com/59264488/225076922-909160a0-6435-4bfb-932c-a28e5ae09127.JPG)
 
-![7](https://user-images.githubusercontent.com/59264488/225076927-738b3eea-d211-4c52-8e95-32ba9a0bfb9a.JPG)
+![7](https://user-images.githubusercontent.com/59264488/225111864-021e9c64-5092-4fbb-a700-2403595eb4ed.JPG)
 
 ## Available Scripts
 
