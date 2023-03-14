@@ -8,7 +8,7 @@ export default function Home() {
         <div className="home-app">
             <div className="card">
                 <h2 className="title">Welcome to my React project</h2>
-                <div>Here you can find two apps: a recipe book and an expense calculator.
+                <div>Here you can find some apps that I have developed.
                     <br />
                     <p>Each of the apps can be accessed via a navigation bar at the top or from the tabs below.</p>
                     <br />
