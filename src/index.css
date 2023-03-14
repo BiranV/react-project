@@ -330,7 +330,7 @@ li:first-child .expense-line {
 .grid-container {
   display: grid;
   grid-gap: 10px 10px;
-  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-columns: auto auto auto auto;
   justify-content: center;
 }
 
@@ -339,7 +339,8 @@ li:first-child .expense-line {
 }
 
 .card-memory img {
-  width: 100%;
+  width: 100px;
+  height: 100px;
   display: block;
   border: 2px solid black;
   border-radius: 6px;
@@ -368,9 +369,7 @@ li:first-child .expense-line {
 
 .popup-inner-memory {
   background-color: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  text-align: center;
   padding: 1rem;
   width: 50%;
   max-width: 250px;

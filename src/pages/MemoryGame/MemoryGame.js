@@ -8,7 +8,7 @@ export default function MemoryGame() {
     const [choiceOne, setchoiceOne] = useState(null)
     const [choiceTwo, setchoiceTwo] = useState(null)
     const [disabled, setDisabled] = useState(false)
-    const [popup, setPopup] = useState(false)
+    const [popup, setPopup] = useState(true)
 
     const cardImages = [
         { "src": "/images/1.png", matched: false },
@@ -90,14 +90,21 @@ export default function MemoryGame() {
             <button className="start-game-btn" onClick={shuffleCards} >Start Game</button>
             <div className="grid-container">
                 {popup && <div className="popup">
-                    <div className="popup-inner-memory">Good Job!
+                    <div className="popup-inner-memory">
+                        <div>
+                            Good Job!<br />
+                            You beat the game in {turns} moves
+                        </div>
                         <button
+                            style={{marginTop: "1rem"}}
                             type="button"
                             className="blue-btn"
                             onClick={resetGame}
                         >
                             Exit
-                        </button></div></div>}
+                        </button>
+                    </div>
+                </div>}
                 {cards.map(card => (
                     <SingleCard
                         key={card.id}
